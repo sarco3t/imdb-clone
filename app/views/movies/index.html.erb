@@ -36,8 +36,8 @@
   <% if current_user && !current_user.ratings.exists?(movie_id: movie.id) %>
     <div class="panel-footer">
       <div class="ratings">
-        <% 10.times do |n| %>
-          <%= button_to movie_rating_path(movie), remote: true, params: { rating: n+1 }, class: 'btn btn-default btn-grey btn-sm star' do %>
+        <% 10.downto(1) do |n| %>
+          <%= button_to movie_rating_path(movie), remote: true, params: { rating: n }, title: "#{n} stars", class: 'btn btn-default btn-grey btn-sm star' do %>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <% end %>
         <% end %>

@@ -27,6 +27,7 @@
     direction: rtl;
   }
   .ratings > form {
+      direction: ltr;
     display: inline;
   }
 
