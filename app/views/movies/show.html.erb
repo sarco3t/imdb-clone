@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+			<%= link_to @movie.title, @movie, class: 'card-link' %>
+		</h3>
+  </div>
+  <div class="panel-body">
+		<%= @movie.text %>
+  </div>
+  <div class="panel-footer">
+    <h4>Average user rating</h4>
+    <h2 class="bold padding-bottom-7"><%= @movie.average_rating %> <small>/ 10</small></h2>
+  </div>
+</div>

@@ -24,6 +24,7 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'friendly_id'
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 group :development, :test do
   gem 'dotenv-rails'

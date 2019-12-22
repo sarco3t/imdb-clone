@@ -6,11 +6,43 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', media: 'all'%>
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Movies</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <li>
+                <%= button_to "Sign Out", destroy_user_session_path, class: 'btn', method: :'delete' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Sign In", new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <%= yield :sidebar %>
+        </div>        
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
