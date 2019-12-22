@@ -1,4 +1,4 @@
-<%= form_for @movie, :html => { :class => "form-horizontal movie" } do |f| %>
+<%= form_for [:admin, @movie], :html => { :class => "form-horizontal movie" } do |f| %>
 
   <% if @movie.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -32,7 +32,7 @@
   <div class="form-group">
     <%= f.label :category_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.select :category_id, Category.all, :class => 'form-control' %>
+      <%= f.collection_select :category_id, Category.all, :id, :title, :class => 'form-control' %>
     </div>
     <%=f.error_span(:category_id) %>
   </div>
@@ -41,7 +41,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                movies_path, :class => 'btn btn-default' %>
+                admin_movies_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
